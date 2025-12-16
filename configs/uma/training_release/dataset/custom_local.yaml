@@ -1,0 +1,38 @@
+snapshot_dir: custom_dataset_root
+
+custom_train:
+  splits:
+    train:
+      src: ${cluster.data_root_dir}/${dataset.snapshot_dir}/train
+  format: ase_db
+  a2g_args:
+    r_energy: True
+    r_forces: True
+    r_edges: ${cpu_graph}
+    radius: ${cutoff_radius}
+    max_neigh: ${max_neighbors}
+  key_mapping:
+    energy: energy
+    forces: forces
+  transforms:
+    common_transform:
+      dataset_name: custom
+
+custom_val:
+  splits:
+    val:
+      src: ${cluster.data_root_dir}/${dataset.snapshot_dir}/val
+  format: ase_db
+  a2g_args:
+    r_energy: True
+    r_forces: True
+    r_edges: ${cpu_graph}
+    radius: ${cutoff_radius}
+    max_neigh: ${max_neighbors}
+  key_mapping:
+    energy: energy
+    forces: forces
+  transforms:
+    common_transform:
+      dataset_name: custom
+

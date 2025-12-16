@@ -22,6 +22,41 @@
 
 </h4>
 
+---
+# eSEN training 
+
+setup uv venv
+```bash
+uv venv .venv --python 3.12
+source .venv/bin/activate
+uv pip install -r requirements.txt
+uv pip install -e packages/fairchem-core[dev]
+
+# hf auth whoami
+```
+
+launch local training
+```bash
+uv run fairchem -c configs/uma/training_release/uma_sm_direct_customdata.yaml cluster=h100_local dataset.snapshot_dir=/abs/path/to/your/custom_dataset_root
+```
+
+```bash
+sbatch scripts/trillium.sh fairchem -c configs/uma/training_release/uma_sm_direct_customdata.yaml dataset.snapshot_dir=/abs/path/to/your/custom_dataset_root
+```
+
+### How we got our config
+We will use the config from https://huggingface.co/facebook/OMol25/blob/main/checkpoints/esen_sm_direct_all.pt
+```bash
+uv run scripts/inspect_esen_ckpt.py 
+```
+
+### Other possible config we did not use
+from https://github.com/facebookresearch/fairchem/issues/1604
+> We did not release the config file for eSEN model trained on MPtrj explicitly. But you can find a copy in the checkpoint itself by loading it with torch.load. Note that esen-MP was trained with fairchem version 1. `config = torch.load("path/to/ckpt.pt", weights_only=False)['config']`
+
+
+---
+
 # `fairchem` by the FAIR Chemistry team
 
 `fairchem` is the [FAIR](https://ai.meta.com/research/) Chemistry's centralized repository of all its data, models,
