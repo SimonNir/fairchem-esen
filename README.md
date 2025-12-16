@@ -40,9 +40,11 @@ launch local training
 uv run fairchem -c configs/uma/training_release/uma_sm_direct_customdata.yaml cluster=h100_local dataset.snapshot_dir=/abs/path/to/your/custom_dataset_root
 ```
 
+launch training on the cluster
 ```bash
 sbatch scripts/trillium.sh fairchem -c configs/uma/training_release/uma_sm_direct_customdata.yaml dataset.snapshot_dir=/abs/path/to/your/custom_dataset_root
 ```
+Set dataset.snapshot_dir to the directory containing train/ and val/
 
 ### How we got our config
 We will use the config from https://huggingface.co/facebook/OMol25/blob/main/checkpoints/esen_sm_direct_all.pt

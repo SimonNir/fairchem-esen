@@ -13,6 +13,8 @@ from pathlib import Path
 import requests
 import torch
 from pprint import pprint
+from omegaconf import OmegaConf
+from fairchem.core.units.mlip_unit.utils import load_inference_model
 
 
 CKPT_URL = (
@@ -31,10 +33,18 @@ def main() -> None:
     model_config = checkpoint.model_config
     print(type(model_config))
     pprint(model_config)
-    
+
+    # instantiate the model
+    model = load_inference_model(str(CKPT_PATH), return_checkpoint=False)
+    n_params = sum(p.numel() for p in model.parameters())
+    print("\nNumber of model parameters:", n_params, "\n")
+
     tasks_config = checkpoint.tasks_config
     for i, cfg in enumerate(tasks_config):
-        print(f"task[{i}]", type(cfg))
+        print(f"\ntask[{i}]", type(cfg))
+        # omegaconf.dictconfig.DictConfig -> dict
+        cfg = OmegaConf.to_container(cfg)
+        cfg.pop("element_references", None) # only in task[0]
         pprint(cfg)
 
 
