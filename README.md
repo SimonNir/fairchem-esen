@@ -31,7 +31,7 @@ uv venv .venv --python 3.12
 source .venv/bin/activate
 uv pip install -r requirements.txt
 uv pip install -e packages/fairchem-core[dev]
-
+uv pip install tensorflow tensorflow-datasets dscribe requests
 # hf auth whoami
 ```
 

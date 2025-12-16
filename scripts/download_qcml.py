@@ -31,7 +31,7 @@ if __name__ == "__main__":
     dft_positions: 11 (7 GB)
     """
 
-    LOCAL_DATA_DIR = "/tmp"
+    LOCAL_DATA_DIR = "/project/rrg-aspuru/aburger/fairchem-esen/data"
     QCML_DATA_DIR = "gs://qcml-datasets/tfds"
     GCP_PROJECT = "deepmind-opensource"
 
