@@ -39,6 +39,11 @@ module load StdEnv/2023  gcc/12.3 cuda/12.6
 # module load openmpi/4.1.5
 # module load python/3.11.5
 
+# Set UV cache directory to a writable location (avoid permission issues on cluster)
+export UV_CACHE_DIR=/scratch/aburger/.cache/uv
+mkdir -p "$UV_CACHE_DIR"
+
+echo "Activating Python environment"
 # Activate Python environment 
 source .venv/bin/activate
 
