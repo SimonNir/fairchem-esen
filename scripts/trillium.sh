@@ -33,8 +33,7 @@ source .env
 cd $SLURM_SUBMIT_DIR
 
 # load modules
-module load cuda/12.6
-module load gcc/12.3
+module load StdEnv/2023  gcc/12.3 cuda/12.6
 # module load StdEnv/2023
 # module load openmpi/4.1.5
 # module load python/3.11.5
