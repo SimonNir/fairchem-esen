@@ -19,7 +19,7 @@ BATCH_SIZE = 50_000  # Process this many valid molecules per batch
 SAMPLE_SIZES = [100, 1_000, 10_000]
 
 # Local QCML TFDS location and read configuration
-LOCAL_DATA_DIR = "/project/rrg-aspuru/aburger/fairchem-esen/data"
+LOCAL_DATA_DIR = "/scratch/aburger/data"
 READ_CONFIG = tfds.ReadConfig(interleave_cycle_length=1)
 
 # SOAP Hyperparameters
