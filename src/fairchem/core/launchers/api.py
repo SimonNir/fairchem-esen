@@ -158,6 +158,7 @@ class JobConfig:
             log_dir = os.path.abspath(self.logs_dir)
         else:
             log_dir = os.path.join(self.run_dir, self.timestamp_id, LOG_DIR_NAME)
+        os.makedirs(log_dir, exist_ok=True)
         self.metadata = Metadata(
             commit=get_commit_hash(),
             log_dir=log_dir,

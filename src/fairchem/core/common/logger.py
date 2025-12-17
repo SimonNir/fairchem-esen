@@ -91,7 +91,7 @@ class WandBLogger(Logger):
         wandb_dir = self.config["cmd"]["logs_dir"]
         if isinstance(self.config["logger"], dict):
             wandb_dir = self.config["logger"].get("wandb_dir", wandb_dir)
-
+        os.makedirs(wandb_dir, exist_ok=True)
         try:
             wandb.init(
                 config=self.config,
@@ -104,8 +104,8 @@ class WandBLogger(Logger):
                 group=group,
                 settings=wandb.Settings(init_timeout=120),
             )
-        except CommError:
-            logging.warning("wandb online initialization failed, falling back to offline mode")
+        except Exception as e:
+            logging.warning(f"wandb online initialization failed: {e}, falling back to offline mode")
             wandb.init(
                 config=self.config,
                 id=self.config["cmd"]["timestamp_id"],
