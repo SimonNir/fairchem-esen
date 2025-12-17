@@ -114,6 +114,12 @@ def main(
             "to run training directly instead of submitting another job."
         )
         scheduler_cfg.mode = SchedulerType.LOCAL
+        # Set ranks_per_node to 1 for single GPU training when running inside SLURM job
+        if scheduler_cfg.ranks_per_node > 1:
+            logging.warning(
+                f"Setting ranks_per_node from {scheduler_cfg.ranks_per_node} to 1 for single GPU training."
+            )
+            scheduler_cfg.ranks_per_node = 1
     
     # logging.info(f"Running fairchemv2 cli with {cfg}")
     if scheduler_cfg.mode == SchedulerType.SLURM:  # Run on cluster
