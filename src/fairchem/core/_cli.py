@@ -101,6 +101,8 @@ def main(
     log_dir = cfg.job.metadata.log_dir
     os.makedirs(cfg.job.run_dir, exist_ok=True)
     os.makedirs(log_dir, exist_ok=True)
+    # Ensure config_path directory exists
+    os.makedirs(os.path.dirname(cfg.job.metadata.config_path), exist_ok=True)
 
     OmegaConf.save(cfg, cfg.job.metadata.config_path)
     logging.info(f"saved canonical config to {cfg.job.metadata.config_path}")
