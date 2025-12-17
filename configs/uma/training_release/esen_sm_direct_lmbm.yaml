@@ -2,7 +2,6 @@ defaults:
   - cluster: h100
   - backbone: K4L2
   - dataset: custom_local
-  - element_refs: iso_atom_elem_refs
   # - tasks: custom_direct
   - tasks: custom_energy
   - _self_
