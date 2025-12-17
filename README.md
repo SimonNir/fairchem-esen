@@ -59,6 +59,8 @@ uv run fairchem -c configs/uma/training_release/esen_sm_direct_lmbm_debug.yaml c
 launch training on the cluster
 ```bash
 sbatch scripts/trillium.sh fairchem -c configs/uma/training_release/esen_sm_direct_lmbm.yaml cluster=h100
+
+sbatch scripts/killarney.sh fairchem -c configs/uma/training_release/esen_sm_direct_lmbm.yaml cluster=h100
 ```
 Set dataset.snapshot_dir to the directory containing train/ and val/
 

@@ -12,6 +12,8 @@
 # activate venv
 source .venv/bin/activate
 
+which python
+
 # get environment variables
 source .env
 
