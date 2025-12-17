@@ -43,7 +43,8 @@ module load StdEnv/2023  gcc/12.3 cuda/12.6
 export UV_CACHE_DIR=/scratch/aburger/.cache/uv
 export MPLCONFIGDIR=/scratch/aburger/.cache/matplotlib
 export XDG_CACHE_HOME=/scratch/aburger/.cache
-mkdir -p "$UV_CACHE_DIR" "$MPLCONFIGDIR" "$XDG_CACHE_HOME"
+export FAIRCHEM_CACHE_DIR=/scratch/aburger/.cache/fairchem
+mkdir -p "$UV_CACHE_DIR" "$MPLCONFIGDIR" "$XDG_CACHE_HOME" "$FAIRCHEM_CACHE_DIR"
 
 echo "Activating Python environment"
 # Activate Python environment 
