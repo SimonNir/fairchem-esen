@@ -106,6 +106,15 @@ def main(
     logging.info(f"saved canonical config to {cfg.job.metadata.config_path}")
 
     scheduler_cfg = cfg.job.scheduler
+    
+    # Auto-detect if we're running inside a SLURM job and switch to LOCAL mode
+    if (os.getenv("SLURM_JOB_ID") or os.getenv("SLURM_SUBMIT_HOST")) and scheduler_cfg.mode == SchedulerType.SLURM:
+        logging.warning(
+            "Detected SLURM environment variables. Switching scheduler mode from SLURM to LOCAL "
+            "to run training directly instead of submitting another job."
+        )
+        scheduler_cfg.mode = SchedulerType.LOCAL
+    
     # logging.info(f"Running fairchemv2 cli with {cfg}")
     if scheduler_cfg.mode == SchedulerType.SLURM:  # Run on cluster
         assert (
