@@ -1,6 +1,7 @@
 wandb
-/data
+# /data
 checkpoints
+checkpoint
 results
 logs
 *.traj
@@ -132,6 +133,3 @@ docs/core/fine-tuning/*.db
 docs/core/quacc*/*
 docs/legacy_tutorials/data/*.extxyz
 docs/**.json
-
-checkpoints
-checkpoint

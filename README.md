@@ -50,6 +50,7 @@ uv pip install tensorflow tensorflow-datasets dscribe requests
 # hf auth whoami
 ```
 
+### Training
 launch local training
 ```bash
 uv run fairchem -c configs/uma/training_release/esen_sm_direct_lmbm_debug.yaml cluster=h100_local
@@ -61,8 +62,14 @@ launch training on the cluster
 sbatch scripts/trillium.sh fairchem -c configs/uma/training_release/esen_sm_direct_lmbm.yaml cluster=h100
 
 sbatch scripts/killarney.sh fairchem -c configs/uma/training_release/esen_sm_direct_lmbm.yaml cluster=h100
+
+sbatch scripts/killarney.sh fairchem -c configs/uma/training_release/esen_sm_direct_lmbm.yaml cluster=h100 dataset.data_path=/project/aip-aspuru/aburger/fairchem-esen/data/300/8020 
+
 ```
-Set dataset.snapshot_dir to the directory containing train/ and val/
+
+### Evaluation
+
+testing on amino_acids.xyz, alcohols.xyz, alkanes.xyz, and pubchem.xyz
 
 ### How we got our config
 We will use the config from https://huggingface.co/facebook/OMol25/blob/main/checkpoints/esen_sm_direct_all.pt
