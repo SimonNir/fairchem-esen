@@ -81,7 +81,8 @@ train_dataloader:
   _target_: fairchem.core.components.common.dataloader_builder.get_dataloader
   dataset: ${train_dataset}
   batch_sampler_fn:
-    _target_: fairchem.core.datasets.samplers.max_atom_distributed_sampler.MaxAtomDistributedBatchSampler
+    # _target_: fairchem.core.datasets.samplers.max_atom_distributed_sampler.MaxAtomDistributedBatchSampler
+    _target_: fairchem.core.common.data_parallel.BalancedBatchSampler
     _partial_: True
     max_atoms: ${max_atoms}
     shuffle: True
@@ -96,7 +97,8 @@ eval_dataloader:
   _target_: fairchem.core.components.common.dataloader_builder.get_dataloader
   dataset: ${val_dataset}
   batch_sampler_fn:
-    _target_: fairchem.core.datasets.samplers.max_atom_distributed_sampler.MaxAtomDistributedBatchSampler
+    # _target_: fairchem.core.datasets.samplers.max_atom_distributed_sampler.MaxAtomDistributedBatchSampler
+    _target_: fairchem.core.common.data_parallel.BalancedBatchSampler
     _partial_: True
     max_atoms: ${max_atoms}
     shuffle: False

@@ -40,7 +40,6 @@ max_neighbors: 30
 cutoff_radius: 6
 epochs: null
 steps: 50000
-max_atoms: 256
 batch_size: 32
 bf16: True
 cpu_graph: True
