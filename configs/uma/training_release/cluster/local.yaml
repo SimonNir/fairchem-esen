@@ -1,11 +1,11 @@
 data_root_dir: /ssd/Code/fairchem-esen/checkpoint
 run_dir: /ssd/Code/fairchem-esen/checkpoint/run_dir
-account: ocp
-qos: ocp
+account: null
+qos: null
 mode: LOCAL
 device: CUDA
 ranks_per_node: 1
 dataloader_workers: 0
 debug: True
-mem_gb: 0
-cpus_per_task: 24
+mem_gb: 16
+cpus_per_task: 8

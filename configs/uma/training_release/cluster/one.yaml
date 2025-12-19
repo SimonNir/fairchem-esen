@@ -1,7 +1,7 @@
 data_root_dir: /project/aip-aspuru/aburger/fairchem-esen/checkpoint
 run_dir: /scratch/aburger/checkpoint/uma
-account: ocp
-qos: ocp
+account: ocp # replace this if you want to use submitit
+qos: normal
 mode: SLURM
 device: CUDA
 ranks_per_node: 1
