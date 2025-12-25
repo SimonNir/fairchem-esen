@@ -11,9 +11,7 @@
     dim: [1]
     dtype: float32
   normalizer:
-    # _target_: fairchem.core.modules.normalization.normalizer.Normalizer
-    # mean: 0.0
-    # rmsd: ${normalizer_rmsd}
+    _target_: fairchem.core.modules.normalization.normalizer.Normalizer
     fit:
       targets: ["energy"]
       batch_size: 256

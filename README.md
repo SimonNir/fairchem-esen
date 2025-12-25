@@ -54,6 +54,14 @@ uv pip install -e packages/fairchem-core[dev]
 # hf auth whoami
 ```
 
+### Preprocess samples
+Accelerates training by >10x compared to using xyz
+```bash
+sbatch --time=1:00:00 scripts/killarney.sh scripts/xyz_to_lmdb.py --data-path data/all/8020/train/ --output-path data/all/8020/train/ --pattern "*_train.xyz" --r-edges --radius 6.0 --max-neigh 30 --molecule-cell-size 20.0 --num-workers 0
+
+sbatch --time=1:00:00 scripts/killarney.sh scripts/xyz_to_lmdb.py --data-path data/all/8020/val/ --output-path data/all/8020/val/ --pattern "*_validation.xyz" --r-edges --radius 6.0 --max-neigh 30 --molecule-cell-size 20.0 --num-workers 0
+```
+
 ### Training
 launch local training
 ```bash
