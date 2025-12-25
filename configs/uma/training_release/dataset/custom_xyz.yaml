@@ -1,7 +1,6 @@
 # @package _global_
 
 cpu_graph: True
-otf_graph: False
 
 dataset:
   snapshot_dir: custom_dataset_root

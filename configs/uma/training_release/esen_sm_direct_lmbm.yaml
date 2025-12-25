@@ -42,7 +42,7 @@ epochs: null
 steps: 50000
 max_atoms: 256
 bf16: True
-cpu_graph: True
+# cpu_graph: True
 otf_graph: False
 normalizer_rmsd: 1.0
 # direct_forces_coef: 10

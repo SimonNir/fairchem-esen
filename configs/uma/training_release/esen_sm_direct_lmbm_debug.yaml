@@ -33,7 +33,7 @@ dataset:
 moe_layer_type: pytorch
 num_moe_experts: 0
 bf16: True
-cpu_graph: True
+# cpu_graph: True
 otf_graph: False
 normalizer_rmsd: 1.0
 regress_stress: False
