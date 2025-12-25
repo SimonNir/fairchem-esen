@@ -44,7 +44,7 @@ batch_size: 32
 bf16: True
 # cpu_graph: True
 otf_graph: False
-normalizer_rmsd: 1.0
+# normalizer_rmsd: 1.0
 # direct_forces_coef: 10
 
 regress_stress: False
