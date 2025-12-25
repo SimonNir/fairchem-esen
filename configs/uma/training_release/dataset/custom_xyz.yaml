@@ -1,44 +1,49 @@
-snapshot_dir: custom_dataset_root
+# @package _global_
 
-custom_train:
-  splits:
-    train:
-      src: ${dataset.data_path}/train/
-      pattern: "*_train.xyz"
-  format: ase_read_multi
-  ase_read_args:
-    index: ":"
-  a2g_args:
-    r_energy: True
-    r_forces: False
-    r_edges: ${cpu_graph}
-    radius: ${cutoff_radius}
-    max_neigh: ${max_neighbors}
-    molecule_cell_size: 20.0
-  key_mapping:
-    REF_energy: energy
-  transforms:
-    common_transform:
-      dataset_name: custom
+cpu_graph: True
+otf_graph: False
 
-custom_val:
-  splits:
-    val:
-      src: ${dataset.data_path}/val/
-      pattern: "*_validation.xyz"
-  format: ase_read_multi
-  ase_read_args:
-    index: ":"
-  a2g_args:
-    r_energy: True
-    r_forces: False
-    r_edges: ${cpu_graph}
-    radius: ${cutoff_radius}
-    max_neigh: ${max_neighbors}
-    molecule_cell_size: 20.0
-  key_mapping:
-    REF_energy: energy
-  transforms:
-    common_transform:
-      dataset_name: custom
+dataset:
+  snapshot_dir: custom_dataset_root
+  custom_train:
+    splits:
+      train:
+        src: ${dataset.data_path}/train/
+        pattern: "*_train.xyz"
+    format: ase_read_multi
+    ase_read_args:
+      index: ":"
+    a2g_args:
+      r_energy: True
+      r_forces: False
+      r_edges: ${cpu_graph}
+      radius: ${cutoff_radius}
+      max_neigh: ${max_neighbors}
+      molecule_cell_size: 20.0
+    key_mapping:
+      REF_energy: energy
+    transforms:
+      common_transform:
+        dataset_name: custom
+
+  custom_val:
+    splits:
+      val:
+        src: ${dataset.data_path}/val/
+        pattern: "*_validation.xyz"
+    format: ase_read_multi
+    ase_read_args:
+      index: ":"
+    a2g_args:
+      r_energy: True
+      r_forces: False
+      r_edges: ${cpu_graph}
+      radius: ${cutoff_radius}
+      max_neigh: ${max_neighbors}
+      molecule_cell_size: 20.0
+    key_mapping:
+      REF_energy: energy
+    transforms:
+      common_transform:
+        dataset_name: custom
 

@@ -28,6 +28,10 @@
 
 ### Optional: install uv
 
+```bash
+curl -LsSf https://astral.sh/uv/install.sh
+```
+
 On read-only clusters like trillium it is better to install uv on scratch
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | UV_INSTALL_DIR="/scratch/aburger/bin" sh
